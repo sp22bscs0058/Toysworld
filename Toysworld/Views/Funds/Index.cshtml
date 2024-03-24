@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Toysworld.Models.Fund>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    body {
+        background-color: pink;
+    }
+
+    .table {
+        background-color: lightblue;
+    }
+
+    .action-link {
+        color: darkblue;
+    }
+
+    .create-button {
+        color: darkblue;
+    }
+
+    
+    .message-box {
+        margin: 20px auto;
+        width: 50%;
+        background-color: darkblue;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+<h1>Index</h1>
+
+<p>
+    <a class="create-button" asp-action="Create">Create New</a>
+</p>
+
+
+<div class="message-box">
+    PLEASE GIVE THE FUNDS FOR  PALESTINE PEOPLE 
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FundPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FundPrice)
+                </td>
+                <td>
+                    <a class="action-link" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="action-link" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="action-link" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
